@@ -8,4 +8,4 @@ The technologies used include:
 - AJAX for handling asynchronous HTTP requests
 - EJS (Embedded JavaScript Template) as template engine
 - BCrypt for password hashing
-- JSON Web Tokens stored in cookies for authentication and authorization
+- JSON Web Tokens for authentication and authorization
