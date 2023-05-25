@@ -5,7 +5,7 @@ import * as db from '../db/requests.js';
 const router = express.Router();
 
 router.get('/style.css', async (req, res) => {
-  res.sendFile('/home/david/Documents/coding/webprogfinal2/lab-sdim2087/static/style.css');
+  res.sendFile(`${process.cwd()}/static/style.css`);
 });
 
 router.get(['/'], async (req, res) => {

@@ -48,7 +48,7 @@ router.post('/logout', async (req, res) => {
 });
 
 router.get('/style.css', async (req, res) => {
-  res.sendFile('/home/david/Documents/coding/webprogfinal2/lab-sdim2087/static/style.css');
+  res.sendFile(`${process.cwd()}/static/style.css`);
 });
 
 export default router;
