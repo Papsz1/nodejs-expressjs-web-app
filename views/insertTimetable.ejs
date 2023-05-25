@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<%- include('partials/head.ejs', { title: 'Insert into Timetable' }) %>
+
+    <body>
+        <%- include('partials/navbar.ejs') %>
+            <h1>Insert into Timetable</h1>
+            <p>Classes</p>
+            <form method="POST" action="/home/timetableInsert" enctype="multipart/form-data">
+                <% if (listClasses.length) { %>
+                    <select name="classID" id="classID">
+                        <% listClasses.forEach((classAux)=> { %>
+                            <option value="<%= classAux.classID %>"><code><%= classAux.ClassName %></code>
+                            </option>
+                            <% }) %>
+                    </select>
+                    <div id="dataListing"></div>
+                    <% } else { %>
+                        <p class="message">There are no classes in the database</p>
+                        <% } %>
+                            <p>Day</p>
+                            <select name="dayID" id="dayID">
+                                <option value="1">Monday</option>
+                                <option value="2">Tuesday</option>
+                                <option value="3">Wednesday</option>
+                                <option value="4">Thursday</option>
+                                <option value="5">Friday</option>
+                            </select>
+                            <p>From</p>
+                            <input type="number" name="startHour" id="startHour" min="0" max="24">
+                            <p>Until</p>
+                            <input type="number" name="endHour" id="endHour" min="0" max="24">
+                            <br>
+                            <br>
+                            <button type="submit">Insert into timetable</button>
+
+            </form>
+
+    </body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<%- include('partials/head.ejs', { title: 'Teacher Management' }) %>
+
+    <body>
+        <%- include('partials/navbar.ejs') %>
+            <h1>Teacher Management</h1>
+            <p>Classes</p>
+            <form method="POST" action="/home/assign" enctype="multipart/form-data">
+            <% if (listClasses.length) { %>
+                <select name="classID" id="classID">
+                    <% listClasses.forEach((classAux)=> { %>
+                        <option value="<%= classAux.classID %>"><code><%= classAux.ClassName %></code></option>
+                        <% }) %>
+                </select>
+                <div id="dataListing"></div>
+                <% } else { %>
+                    <p class="message">There are no classes in the database</p>
+                    <% } %>
+            <p>Teachers </p>
+            <% if (teacherInfo.length) { %>
+                <select name="userID" id="userID">
+                    <% teacherInfo.forEach((user)=> { %>
+                        <option value="<%= user.userName %>"><code><%= user.userName %></code>
+                        </option>
+                        <% }) %>
+                </select>
+                <div id="dataListing"></div>
+                <% } else { %>
+                    <p class="message">There are no users in the database</p>
+                    <% } %>
+                    <br>
+                        <button type="submit">Assign teacher</button>
+                      </form>
+    </body>
+
+</html>

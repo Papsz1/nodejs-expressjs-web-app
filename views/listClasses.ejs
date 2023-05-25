@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<%- include('partials/head.ejs', { title: 'List of Classes' }) %>
+
+  <body>
+    <%- include('partials/navbar.ejs') %>
+      <h1>Class</h1>
+      <% if (classInfo.length) { %>
+        <table>
+          <table>
+            <tr>
+              <th>Code</th>
+              <th>Name</th>
+              <th>Year</th>
+              <th>Lecture Hours</th>
+              <th>Seminar Hours</th>
+              <th>Laboratory hours</th>
+            </tr>
+            <tr>
+              <td><code><%= classInfo[0].classID %></code></td>
+              <td><code><%= classInfo[0].ClassName %></code></td>
+              <td><code><%= classInfo[0].ClassYear %></code></td>
+              <td><code><%= classInfo[0].ClassLectureHours %></code></td>
+              <td><code><%= classInfo[0].ClassSeminarHours %></code></td>
+              <td><code><%= classInfo[0].ClassLabHours %></code></td>
+            </tr>
+          </table>
+          <h1>Syllabus</h1>
+          <p><code> <%=classInfo[0].classSyllabus %></code></p>
+          <h1>Filenames</h1>
+          <% if (classInfo.length) { %>
+
+            <% classInfo.forEach((classAux)=> { %>
+              <div id='<%= classAux.fileName %>'>
+                <tr>
+                  <form action="/home/download" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" value="<%= classAux.fileName %>" name="fileName">
+                    <td><button type="submit"><code><%= classAux.fileName %></code></button>
+                    </td>
+                    <td>
+                    </td>
+                  </form>
+                  <button onclick='fileDeletion("<%= classAux.fileName %>")'>Delete file</button>
+                </tr>
+              </div>
+              <% }) %>
+                <p id="endMessage"></p>
+                <% } else { %>
+                  <p>No files uploaded</p>
+                  <% } %>
+        </table>
+        <% } %>
+         
+            <% if (classInfo[0].classOwner==locals.name || locals.name == 'admin') { %>
+              <h1>Document upload</h1>
+              <form action="/home/upload" method="POST" enctype="multipart/form-data">
+                <input type="hidden" value="<%= code %>" name="code" id="code">
+                <input type="file" name="file" id="file">
+                <br><br>
+                <button type="submit" class="ownbutton1">Upload</button>
+              </form>
+              <% if (errorMessage !='' ) { %>
+                <p>
+                  <%= errorMessage %>
+                </p>
+                <% } %>
+                  <% } %>
+
+
+                  <% if (classInfo.length && locals.name == 'admin' ) { %>
+                    <h1>Class maintenance</h1>
+                    <form action="/home/classDelete" method="POST" enctype="multipart/form-data">
+                      <input type="hidden" value="<%= classInfo[0].classID %>" name="classDeletionID">
+                      <button type="submit" class="ownbutton1"><code>Delete class</code></button>
+                    </form>
+                    <% } %> 
+  </body>
+
+</html>

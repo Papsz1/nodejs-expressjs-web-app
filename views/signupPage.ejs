@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<%- include('partials/head.ejs', { title: 'Sign up' }) %>
+    <body>
+        <%- include('partials/navbar.ejs') %>
+            <h1>Sign up</h1>
+            <% if (listOfClasses.length && userLists.length) { %>
+                <h1>Classes</h1>
+                <form name="signupForm" method="POST" action="/home/signup" enctype="multipart/form-data">
+                    <select name="classList">
+                        <% listOfClasses.forEach((classAux)=> { %>
+                            <option value="<%= classAux.classID %>">
+                                <%= classAux.ClassName %>
+                            </option>
+                            <% }) %>
+                    </select>
+
+                    <h1>Users</h1>
+
+                    <select name="userList">
+                        <% userLists.forEach((user)=> { %>
+                            <option value="<%= user.userID %>">
+                                <%= user.userID %>
+                            </option>
+                            <% }) %>
+                    </select>
+                    <br><br>
+                    <input type="submit" value="Signup" name="sign">
+                    <input type="submit" value="Signoff" name="sign">
+                </form>
+                <% } else { %>%>
+                    <p>There are no users or no classes</p>
+                    <% } %>
+                        <% if (responseMessage != '') { %>
+                            <p><%= responseMessage%></p>
+                            <% } %>
+
+    </body>
+
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('partials/head.ejs', { title: 'User register' }) %>
+
+    <body>
+        <%- include('partials/navbar.ejs') %>
+            <h1>User register</h1>
+            <form name="formForUser" method="POST" action="/home/register" enctype="multipart/form-data">
+                <p>User ID</p>
+                <input type="number" name="userID" id="uniqueCode">
+                <br><br>
+                <input type="submit" value="register" name="upload" id="upload">
+            </form>
+            <% if (errorMessage !='' ) { %>
+                <p>
+                    <%= errorMessage %>
+                </p>
+                <% } %>
+    </body>
+
+</html>

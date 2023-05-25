@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('partials/head.ejs', { title: 'Bejelentkezes' }) %>
+
+  <body>
+    <%- include('partials/navbar.ejs') %>
+    <h1>Login</h1>
+    <form method="POST" action="/auth/login" enctype="multipart/form-data">
+        <label for="loginName">Username</label>
+        <input type="text", id="loginName" name="loginName" required>
+        <br>
+        <label for="loginPassword">Password</label>
+        <input type="password", id="loginPassword" name="loginPassword" required>
+        <br>
+        <input type="submit">
+    </form>
+
+  </body>
+</html>

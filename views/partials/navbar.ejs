@@ -1,0 +1,34 @@
+<head>
+  <script src='/main.js'></script>
+  <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<div id="navbar" class="navigationbar">
+  <a class="bold">StudPlatform</a>
+  <span><a href="/home">Home</a></span>
+  <% if (locals.name == 'admin' ) { %>
+    <span><a href="/home/registerPage">Create a user</a></span>
+    <span><a href="/home/classInsert">Insert Class</a></span>
+    <span><a href="/home/teacherMaintenance">Teacher management</a></span>
+    <span><a href="/home/timetable">Insert into Timetable</a></span>
+    <span><a href="/home/listTimetable">Timetable</a></span>
+    <span><a href="/home/requests">Requests</a></span>
+
+    <% } %>
+    <% if (locals.rank == 0 ) { %>
+      <span><a href="/home/ownClasses">Classes</a></span>
+      <span><a href="/home/ownTimeTable">Timetable</a></span>
+      <span><a href="/home/requests">Requests</a></span>
+      <% } %>
+
+      <% if (locals.name) { %>
+        <span>
+         <a class="right"><%=locals.name%></a>
+        </span>
+        <form action="/auth/logout" method="POST" enctype="multipart/form-data">
+          <input type="submit" value="Logout" name="Logout" id="Logout" class="right">
+        </form>
+        <% } else { %>
+          <span><a href="/auth/loginPage">Login</a></span>
+          <% } %>
+
+</div>

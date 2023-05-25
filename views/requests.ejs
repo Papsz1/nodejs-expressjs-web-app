@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<%- include('partials/head.ejs', { title: 'Requests' }) %>
+
+  <body>
+    <%- include('partials/navbar.ejs') %>
+    <% if (locals.rank == 0 ) { %>
+    <h1>Requests</h1>
+    <form method="POST" action="/home/createRequest" enctype="multipart/form-data">
+        <label for="registerName">Keres</label>
+        <input type="text", id="requestContent" name="requestContent" required>
+        <input type="submit">
+    </form>
+    <% } %>
+    <% if (locals.rank == 1 ) { %>
+      <h1>List of requests</h1>
+      <% requestInfo.forEach((request)=> { %>
+        <h1><%=request.requestTeacher%></h1>
+        <p><%=request.requestContent%></p>
+        <% }) %>
+
+      <% } %>
+  </body>
+</html>

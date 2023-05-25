@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('partials/head.ejs', { title: 'Insert Class' }) %>
+    <body>
+        <%- include('partials/navbar.ejs') %>
+            <h1>Insert Class</h1>
+            <form name="formForUser" method="POST" action="/home/insertClass" enctype="multipart/form-data">
+                <p>Class Code</p>
+                <input type="text" name="uniqueCode" id="uniqueCode">
+                <p>Class Name</p>
+                <input type="text" name="uniqueName" id="uniqueName">
+                <p>Class Teacher</p>
+                <input type="text" name="owner" id="owner">
+                <p>Class Syllabus</p>
+                <input type="text" name="syllabus" id="syllabus">
+                <p>Year</p>
+                <input type="number" name="year" id="year">
+                <p>Lecture Hours</p>
+                <input type="number" name="courseHours" id="courseHours">
+                <p>Seminar Hours</p>
+                <input type="number" name="seminarHours" id="seminarHours">
+                <p>Laboratory hours</p>
+                <input type="number" name="labHours" id="labHours">
+                <br><br>
+                <input type="submit" value="upload" name="upload" id="upload">
+            </form>
+    </body>
+
+</html>

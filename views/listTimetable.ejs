@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<%- include('partials/head.ejs', { title: 'Timetable' }) %>
+
+    <body>
+        <%- include('partials/navbar.ejs') %>
+
+    <% if (timetableInfo.length) { %>
+
+          <h1>Monday</h1>
+          <% timetableInfo.forEach((hour)=> { %>
+        <% if (hour.hourDay == 1) { %>
+            <p class="ownp"><code><%= hour.hourStart %></code>-<code><%= hour.HourEnd %></code>: <code><%= hour.HourName %></code></p>
+            <% }}) %>
+          
+          <h1>Tuesday</h1>
+          <% timetableInfo.forEach((hour)=> { %>
+          <% if (hour.hourDay == 2) { %>
+            <p class="ownp"><code><%= hour.hourStart %></code>-<code><%= hour.HourEnd %></code>: <code><%= hour.HourName %></code></p>
+            <% }}) %>
+
+          <h1>Wednesday</h1>
+        <% timetableInfo.forEach((hour)=> { %>
+          <% if (hour.hourDay == 3) { %>
+            <p class="ownp"><code><%= hour.hourStart %></code>-<code><%= hour.HourEnd %></code>: <code><%= hour.HourName %></code></p>
+            <% }}) %>
+            
+          <h1>Thursday</h1>
+        <% timetableInfo.forEach((hour)=> { %>
+          <% if (hour.hourDay == 4) { %>
+            <p class="ownp"><code><%= hour.hourStart %></code>-<code><%= hour.HourEnd %></code>: <code><%= hour.HourName %></code></p>
+            <% }}) %>
+
+          <h1>Friday</h1>
+        <% timetableInfo.forEach((hour)=> { %>
+          <% if (hour.hourDay == 5) { %>
+            <p class="ownp"><code><%= hour.hourStart %></code>-<code><%= hour.HourEnd %></code>: <code><%= hour.HourName %></code></p>
+            <% }}) %>
+
+            <p id="endMessage"></p>
+            <% } else { %>
+              <p>There is no current timetable</p>
+              <% } %>
+    </table>
+</body>
+
+</html>

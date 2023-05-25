@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<%- include('partials/head.ejs', { title: 'Classes' }) %>
+
+  <body>
+    <%- include('partials/navbar.ejs') %>
+      <h1 class="nagycim">Classes</h1>
+      <% if (listClasses.length) { %>
+        <table>
+          <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Year</th>
+            <th>Lecture Hours</th>
+            <th>Seminar Hours</th>
+            <th>Laboratory hours</th>
+            <th></th>
+          </tr>
+          <% listClasses.forEach((classAux)=> { %>
+            <tr onclick="showFile(`<%= classAux.classID %>`)">
+              <td><code><%= classAux.classID %></code></td>
+              <td><code><%= classAux.ClassName %></code></td>
+              <td><code><%= classAux.ClassYear %></code></td>
+              <td><code><%= classAux.ClassLectureHours %></code></td>
+              <td><code><%= classAux.ClassSeminarHours %></code></td>
+              <td><code><%= classAux.ClassLabHours %></code></td>
+              <td>
+                <form name="form2" method="POST" action="/home/listClass" enctype="multipart/form-data">
+                  <input type="hidden" value="<%= classAux.classID %>" name="code" id="code">
+                  <input type="submit" value="listit" name="listit" id="listit" class="ownbutton1">
+                </form>
+              </td>
+            </tr>
+        <% }) %>
+        </table>
+        <div id="dataListing"></div>
+          <% } else { %>
+            <p class="message">There are no classes in the database</p>
+            <% } %>
+              <% if (errorMessage !='' ) { %>
+                <p>
+                  <%= errorMessage %>
+                </p>
+                <% } %>
+
+  </body>
+
+</html>

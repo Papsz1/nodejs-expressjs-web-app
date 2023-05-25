@@ -1,0 +1,38 @@
+{
+  "name": "lab-sdim2087",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/ubb-webprog/labs2022/lab-sdim2087.git"
+  },
+  "author": "Szilagyi-Pap David",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/ubb-webprog/labs2022/lab-sdim2087/issues"
+  },
+  "homepage": "https://gitlab.com/ubb-webprog/labs2022/lab-sdim2087#readme",
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0"
+  },
+  "dependencies": {
+    "auto-bind": "^5.0.1",
+    "bcrypt": "^5.0.1",
+    "cookie-parser": "^1.4.6",
+    "ejs": "^3.1.7",
+    "express": "^4.18.1",
+    "express-formidable": "^1.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "path": "^0.12.7",
+    "require": "^2.4.20"
+  }
+}

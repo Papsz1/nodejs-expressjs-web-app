@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<%- include('partials/head.ejs', { title: 'Create a user' }) %>
+
+  <body>
+    <%- include('partials/navbar.ejs') %>
+    <h1>Create a user</h1>
+    <form method="POST" action="/home/register" enctype="multipart/form-data">
+        <label for="registerName">Username</label>
+        <br>
+        <input type="text", id="registerName" name="registerName" required>
+        <br>
+        <br>
+        <label for="fullName">Full name</label>
+        <br>
+        <input type="text", id="fullName" name="fullName" required>
+        <br>
+        <br>
+        <label for="registerPassword">Jelszo</label>
+        <br>
+        <input type="password", id="registerPassword" name="registerPassword" required>
+        <br>
+        <br>
+        <select name="rank" id="rank">
+          <option value="0">Standard</option>
+          <option value="1">Admin</option>
+        </select>
+        <br>
+        <br>
+        <input type="submit">
+    </form>
+    
+  </body>
+</html>
